@@ -1,0 +1,123 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    padding: 200px 0 0;
+    background: radial-gradient(#a4e4f7,rgb(10, 141, 255));
+}
+
+.container{
+    width: 250px;
+    height: 30vh;
+    margin: auto;
+    perspective: 1000px;
+}
+.box{
+    width: 250px;
+    height: 250px;
+    position:absolute;              /*  ****   */
+    transform-style: preserve-3d;
+    animation: dance infinite 10s linear;
+}
+
+@keyframes dance{
+    0%{
+        transform: rotateX(45deg) rotateY(45deg) rotateZ(-45deg); 
+    }
+    25%{
+        transform: rotateX(150deg) rotateY(-150deg) rotateZ(150deg); 
+    }
+    50%{
+        transform: rotateX(255deg) rotateY(255deg) rotateZ(255deg); 
+    }
+    75%{
+        transform: rotateX(-360deg) rotateY(-360deg) rotateZ(360deg); 
+    }
+    100%{
+        transform: rotateX(-45deg) rotateY(45deg) rotateZ(45deg); 
+    }
+}
+
+
+.card{
+    border: 2px solid black;
+    height: 250px;
+    width: 250px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    font-size: 25px;
+    position: absolute;
+    box-shadow: 0 0 20px red;
+}
+
+#left{
+    right: 125px;
+    transform: rotateY(90deg);
+     background-image: url(images/sanji.jpg);
+    background-position: center;
+    background-size: cover;
+}
+#right{
+    left: 125px;    
+    transform: rotateY(90deg);
+     background-image: url(images/zoro.webp);
+    background-position: center;
+    background-size: cover;
+}
+#bottom{
+    top: 125px;
+    transform: rotateX(90deg);
+     background-image: url(images/robin.jpeg);
+    background-position: center;
+    background-size: cover;
+}
+#top{
+    bottom: 125px;
+    transform: rotateX(90deg);
+     background-image: url(images/chopper.webp);
+    background-position: center;
+    background-size: cover;
+}
+#back{
+    transform: translateZ(-125px);
+    background-image: url(images/nami.jpeg);
+    background-position: center;
+    background-size: cover;
+}
+#front{
+    transform: translateZ(125px);
+    background-image: url(images/lufy.webp);
+    background-position: center;
+    background-size: cover;
+}
+
+input{
+    width: 150px;
+    height: 50px;
+    font-size: 25px;
+    border: 5px solid red;
+    border-radius: 10px;
+    background-color: rgb(255, 112, 112);
+    position: absolute;
+    top: 50px;
+    left: 200px;
+    font-weight: 700;
+    color: red;
+    cursor: pointer;
+}
+input:hover{
+    box-shadow: 0 0 20px red;
+    background-color: red;   
+    color: rgb(255, 112, 112);
+}
+
+
+input:focus~ .box #front{
+    transform: translateZ(-180px) rotateY(360deg);
+}
